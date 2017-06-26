@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>ICOMUNE</title>
+
+</head>
+
+<body>
+<link rel="stylesheet" type="text/css" href="styleoflogin.css">
+<h1>iCOMUNE</h1>
+	<a href="regioni.html"> pagina regioni</a><br/>
+<form nome="nome" action="prova.php" method="post">
+<br>utente<br>
+<input type="text" name="utente"/>
+<br>password<br>
+<input type="text" name="password"/>
+<br>digitare il nome del comune interessato<br>
+<input type="text" name="nomecomune"/>
+<br/>
+<br>
+
+    <br><p><b>SCHEDA ANAGRAFICA</b></p>
+    <br><p>istat
+	<input type="radio" name="istat" value="istat" method="post"/>
+	codice della provincia
+    <input type="radio" name="provincia" value="provincia" method="post"/>
+	sigla della provincia
+    <input type="radio" name="siglaprov" value="siglaprov" method="post"/>
+	codice della regione
+    <input type="radio" name="codiceregione" value="codiceregione" method="post"/>
+	area geografica
+    <input type="radio" name="areageo" value="areageo" method="post"/>
+	popolazione residente
+    <input type="radio" name="popresidente" value="popresidente" method="post"/>
+	popolazione straniera
+    <input type="radio" name="popstraniera" value="popstraniera" method="post"/>
+	<br>densita demografica
+    <input type="radio" name="densitademografica" value="densitademografica" method="post"/>
+	superficie in kmq
+    <input type="radio" name="superficekmq" value="superficekmq" method="post"/>
+	altezza del centro
+    <input type="radio" name="altezzacentro" value="altezzacentro" method="post"/>
+	zona altimetrica
+    <input type="radio" name="zonaaltrimetrica" value="zonaaltrimetrica" method="post"/>
+    latitudine
+    <input type="radio" name="latitudine" value="latitudine" method="post"/>
+    longitudine
+    <input type="radio" name="longitudine" value="longitudine" method="post"/>	
+	codice catastale
+    <input type="radio" name="codicecatastale" value="codicecatastale" method="post"/>
+	</p>
+	
+	<p style="text-align:center;">TUTTI I CAMPI
+    <input type="radio" name="tutto" value="tutto" method="post"/>
+	</p>
+	
+	<br><p><b>AMMINISTRATORI COMUNALI</b></p>
+    <input type="radio" name="amministratoricomunali" value="amministratoricomunali" method="post"/>
+	</p>
+	
+	<br><p><b>FESTA PATRONALE</b></p>
+    <input type="radio" name="festepatronali" value="festepatronali" method="post"/>
+	</p>
+	
+    <input type="submit" name="invio" />
+	<input type="reset" name="reset"/>
+    <br><br>
+
+
+
+</form>
+
+</body>
+
+
+
+
+</html>

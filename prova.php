@@ -1,5 +1,9 @@
+
 <?php
 // nome di host
+/*query dei cinema select programmazionecinema.nomecinema,schedaanagraficafilm.nomefilm,cinema_film.proiezione
+from icomune.schedaanagraficafilm inner join(icomune.programmazionecinema inner join cinema_film on 
+idcinema=cinema_film.fkcin)on schedaanagraficafilm.idfilm=cinema_film.fkfilm where fkcinema='Acqui Terme';*/
 $host = "localhost";
 // nome del database
 $db = "icomune";
@@ -33,6 +37,7 @@ $sa="select * from icomune.schedaanagrafica where nomecomune=\"".$var."\"";
 $csa="select contattischedaanagrafica.sito,contattischedaanagrafica.mail,contattischedaanagrafica.telefono,contattischedaanagrafica.indirizzo,contattischedaanagrafica.fax from icomune.contattischedaanagrafica inner join icomune.schedaanagrafica on contattischedaanagrafica.nomecontatti=schedaanagrafica.nomecomune where schedaanagrafica.nomecomune=\"".$var."\"";
 $ac="select amministratoricomunali.cognome,amministratoricomunali.nome,amministratoricomunali.siglaprovincia,amministratoricomunali.popcensita,amministratoricomunali.titoloaccademico,amministratoricomunali.sesso,amministratoricomunali.datanascita,amministratoricomunali.luogonascita,amministratoricomunali.carica,amministratoricomunali.dataelezione,amministratoricomunali.dataentratacarica,amministratoricomunali.partito,amministratoricomunali.titolodistudio,amministratoricomunali.professione from icomune.amministratoricomunali inner join icomune.schedaanagrafica on amministratoricomunali.fkcomuneamm=schedaanagrafica.nomecomune where fkcomuneamm=upper(\"".$var."\")";
 $fp="select festepatronali.nomesanto,festepatronali.fkcomunepatrono,festepatronali.giornofesta from icomune.festepatronali inner join icomune.schedaanagrafica on festepatronali.fkcomunepatrono=schedaanagrafica.nomecomune where festepatronali.fkcomunepatrono=\"".$var."\"";
+
 /*$l="SELECT * FROM icomune.amministratoricomunali WHERE fkcomuneamm=upper(\"".$var."\")";
 $v="SELECT * FROM icomune.festepatronali WHERE fkcomunepatrono=\"".$var."\"";*/
 if(isset ($_POST['istat']))
@@ -162,6 +167,58 @@ echo "<tr><td>codice catastale</td><td>".$row['codicecatastale'].$nl."</td></tr>
 echo "</table>";
 }
 }
+
+if(isset ($_POST['sito']))
+{
+ 
+foreach ($connessione->query($csa) as $row){	
+?><table border="1"><?php
+echo "<tr><td>sito</td><td>".$row['sito'].$nl."</td></tr>";
+echo "</table>";
+}
+}
+
+if(isset ($_POST['mail']))
+{
+ 
+foreach ($connessione->query($csa) as $row){	
+?><table border="1"><?php
+echo "<tr><td>email</td><td>".$row['mail'].$nl."</td></tr>";
+echo "</table>";
+}
+}
+
+if(isset ($_POST['telefono']))
+{
+ 
+foreach ($connessione->query($csa) as $row){	
+?><table border="1"><?php
+echo "<tr><td>telefono</td><td>".$row['telefono'].$nl."</td></tr>";
+echo "</table>";
+}
+}
+
+if(isset ($_POST['indirizzo']))
+{
+ 
+foreach ($connessione->query($csa) as $row){	
+?><table border="1"><?php
+echo "<tr><td>indirizzo</td><td>".$row['indirizzo'].$nl."</td></tr>";
+echo "</table>";
+}
+}
+
+if(isset ($_POST['fax']))
+{
+ 
+foreach ($connessione->query($csa) as $row){	
+?><table border="1"><?php
+echo "<tr><td>fax</td><td>".$row['fax'].$nl."</td></tr>";
+echo "</table>";
+}
+}
+
+
 if (isset($_POST['tutto']))
 {
 	foreach ($connessione->query($sa) as $row){

@@ -1,9 +1,7 @@
 
 <?php
 // nome di host
-/*query dei cinema select programmazionecinema.nomecinema,schedaanagraficafilm.nomefilm,cinema_film.proiezione
-from icomune.schedaanagraficafilm inner join(icomune.programmazionecinema inner join cinema_film on 
-idcinema=cinema_film.fkcin)on schedaanagraficafilm.idfilm=cinema_film.fkfilm where fkcinema='Acqui Terme';*/
+/*'Acqui Terme';*/
 $host = "localhost";
 // nome del database
 $db = "icomune";
@@ -37,7 +35,9 @@ $sa="select * from icomune.schedaanagrafica where nomecomune=\"".$var."\"";
 $csa="select contattischedaanagrafica.sito,contattischedaanagrafica.mail,contattischedaanagrafica.telefono,contattischedaanagrafica.indirizzo,contattischedaanagrafica.fax from icomune.contattischedaanagrafica inner join icomune.schedaanagrafica on contattischedaanagrafica.nomecontatti=schedaanagrafica.nomecomune where schedaanagrafica.nomecomune=\"".$var."\"";
 $ac="select amministratoricomunali.cognome,amministratoricomunali.nome,amministratoricomunali.siglaprovincia,amministratoricomunali.popcensita,amministratoricomunali.titoloaccademico,amministratoricomunali.sesso,amministratoricomunali.datanascita,amministratoricomunali.luogonascita,amministratoricomunali.carica,amministratoricomunali.dataelezione,amministratoricomunali.dataentratacarica,amministratoricomunali.partito,amministratoricomunali.titolodistudio,amministratoricomunali.professione from icomune.amministratoricomunali inner join icomune.schedaanagrafica on amministratoricomunali.fkcomuneamm=schedaanagrafica.nomecomune where fkcomuneamm=upper(\"".$var."\")";
 $fp="select festepatronali.nomesanto,festepatronali.fkcomunepatrono,festepatronali.giornofesta from icomune.festepatronali inner join icomune.schedaanagrafica on festepatronali.fkcomunepatrono=schedaanagrafica.nomecomune where festepatronali.fkcomunepatrono=\"".$var."\"";
-
+$c="select programmazionecinema.nomecinema,schedaanagraficafilm.nomefilm,cinema_film.proiezione
+from icomune.schedaanagraficafilm inner join(icomune.programmazionecinema inner join cinema_film on 
+idcinema=cinema_film.fkcin)on schedaanagraficafilm.idfilm=cinema_film.fkfilm where fkcinema=\"".$var."\"";
 /*$l="SELECT * FROM icomune.amministratoricomunali WHERE fkcomuneamm=upper(\"".$var."\")";
 $v="SELECT * FROM icomune.festepatronali WHERE fkcomunepatrono=\"".$var."\"";*/
 if(isset ($_POST['istat']))
@@ -315,4 +315,16 @@ if (isset($_POST['amministratoricomunali']))
 	}
 	echo"</table>";
 	}
+	if (isset($_POST['cinema']))
+	{
+		?><table border="1"><?php
+		foreach($connessione->query($c) as $row)
+		{
+			echo"<tr><td>nome del cinema</td><td>".$row['nomecinema'].$nl."</td></tr>";
+		    echo"<tr><td>film</td><td>".$row['nomefilm'].$nl."</td></tr>";
+			echo"<tr><td>proiezione</td><td>".$row['proiezione'].$nl."</td></tr>";
+		}
+		echo"</table>";
+	}
+	
 ?>

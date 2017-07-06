@@ -1,18 +1,16 @@
-<<<<<<< HEAD
 <?php
 session_start();
 print_r($_SESSION);
 $username = $_SESSION['username'];
 $password = $_SESSION['password'];
-
 // nome di host
 $host = "localhost";
 // nome del database
 $db = "icomune";
 // username dell'utente in connessione
 //$user = $_POST['utente'];
+$programmazionecinema=$_POST;
 // password dell'utente
-//$password = $_POST['password'];
 header('Content-Type: text/html; charset=latin');
 /*
   blocco try/catch di gestione delle eccezioni
@@ -31,116 +29,121 @@ catch(PDOException $e)
   // notifica in caso di errore nel tentativo di connessione
   echo $e->getMessage();
 }
-if (isset($user) and isset($password))
+/*var_dump($programmazionecinema);
+die();*/
+if (isset($username) /*and isset($password)*/)
 {
-if (($user=="root") and ($password==null))
-	
+if (($username=="root") /*and ($password==null)*/)
 {
-	
- 
-	
-	function campiprogrammazionecinema($icomune)
+	function campiprogrammazionecinema($programmazionecinema)
 	{
-		switch($icomune)
+	    $r;
+		$count=0;
+		foreach($programmazionecinema as $field=>$valore) 
 		{
-			case '1':
-			if(isset ($_POST["nomecinema"]))
-				return 1;
-			break;
-			case '2':
-			if(isset ($_POST["indirizzo"]))
-				return 2;
-			break;
-			case '3':
-			if(isset ($_POST["telefono"]))
-				return 3;
-			break;
-			case '4':
-			if(isset ($_POST["email"]))
-				return 4;
-			break;
-			case '5':
-			if(isset ($_POST["fkcinema"]))
-				return 5;
-			break;
-		}
+			switch($field)
+			{                           
+				case 'nomecinema':
+				if($valore==null){$count+1;}
+					else{
+							if($count=0){$r=$field;}
+//					    		else {$r=$r.','.$field;}
+						}
+				break;
+				case 'indirizzo':
+				if($valore==null){$count+1;}
+					else{
+							if($count=1){$r=$field;}
+					    		else {$r=$r.','.$field;}
+						}
+				break;
+				case 'telefono':
+				if($valore==null){$count+1;}
+					else{
+							if($count=2){$r=$field;}
+					    		else {$r=$r.','.$field;}
+						}
+				break;				
+				case 'email':
+				if($valore==null){$count+1;}
+					else{
+							if($count=3){$r=$field;}
+					    		else {$r=$r.','.$field;}
+						}
+				break;
+				case 'fkcinema':
+				if($valore==null){$count+1;}
+					else{
+							if($count=4){$r=$field;}
+					    		else {$r=$r.','.$field;}
+						}
+				break;
+			}
+		} 
+	return $r;	
 	}
-	$var=$_POST["valore"];
-    $query="insert into icomune.programmazionecinema (".campiprogrammazionecinema().") values (\"".$var."\")";
-   
 	
-	
-	
+	function valoriprogrammazionecinema($programmazionecinema)
+	{
+	    $x;
+		$c=0;
+		foreach($programmazionecinema as $field =>$valore) 
+		{
+			switch($field)
+			{
+				case 'nomecinema':
+				if($valore==null){$c+1;}
+					else{ 
+							if($c=0){$x='"'.$valore.'"';}
+//					    		else {$x=$x.','.'"'.$valore.'"';}
+						}
+				break;
+				case 'indirizzo':
+				if($valore==null){$c+1;}
+					else{ 
+							if($c=1){$x='"'.$valore.'"';}
+					    		else {$x=$x.','.'"'.$valore.'"';}
+						}
+				break;
+				case 'telefono':
+				if($valore==null){$c+1;}
+					else{ 
+							if($c=2){$x='"'.$valore.'"';}
+					    		else {$x=$x.','.'"'.$valore.'"';}
+						}
+				break;
+				case 'email':
+				if($valore==null){$c+1;}
+					else{ 
+							if($c=3){$x='"'.$valore.'"';}
+					    		else {$x=$x.','.'"'.$valore.'"';}
+						}
+				break;
+				case 'fkcinema':     
+				if($valore==null){$c+1;}
+					else{ 
+							if($c=4){$x='"'.$valore.'"';}
+					    		else {$x=$x.','.'"'.$valore.'"';}
+						}
+				break;
+			}
+		}
+	return $x;
+	}
+$fkcinema=$_POST['fkcinema'];
+	if($fkcinema==null)
+	{   
+     	$query=$connessione->prepare("insert into icomune.programmazionecinema (".campiprogrammazionecinema($programmazionecinema)./*$a.*/") values(".valoriprogrammazionecinema($programmazionecinema)./*$b.*/")");
+		$query->execute();
+		var_dump($query);
+	}
+	else
+	{
+		$query1=$connessione->prepare("insert into icomune.programmazionecinema (".campiprogrammazionecinema($programmazionecinema).$a.") values(\"".valoriprogrammazionecinema($programmazionecinema).$b."\")where fkcinema=\"".$fkcinema."\"");
+		$query1->execute();		
+		var_dump($query1);
+	}		
 }
 }
-echo"nome utente o password errato";
+else echo"nome utente o password errato";
 ?>
-=======
-<?php
-// nome di host
-
-$host = "localhost";
-// nome del database
-$db = "icomune";
-// username dell'utente in connessione
-//$user = $_POST["utente"];
-// password dell'utente
-//$password = $_POST["password"];
-header('Content-Type: text/html; charset=latin');
-/*
-  blocco try/catch di gestione delle eccezioni
-*/
-try {
-  // stringa di connessione al DBMS
-  $connessione = new PDO("mysql:host=$host;dbname=$db"/*, $user, $password*/);
-  
-  // notifica in caso di connessione effettuata
-  echo "Connessione a MySQL tramite PDO effettuata.";
-  // chiusura della connessione
-  //$connessione = null;
-}
-catch(PDOException $e)
-{
-  // notifica in caso di errore nel tentativo di connessione
-  echo $e->getMessage();
-}
-if (($user=="FrancescoB") and ($password=="Fenix1718"))
-{
-	
- 
-	
-	function campiprogrammazionecinema($icomune)
-	{
-		switch($icomune)
-		{
-			case '1':
-			if(isset ($_POST["nomecinema"]))
-				return 1;
-			break;
-			case '2':
-			if(isset ($_POST["indirizzo"]))
-				return 2;
-			break;
-			case '3':
-			if(isset ($_POST["telefono"]))
-				return 3;
-			break;
-			case '4':
-			if(isset ($_POST["email"]))
-				return 4;
-			break;
-			case '5':
-			if(isset ($_POST["fkcinema"]))
-				return 5;
-			break;
-		}
-	}
-	$var=$_POST["valore"];
-    $query="insert into icomune.programmazionecinema (".campiprogrammazionecinema().") values (\"".$var."\")";
-   
-	
-	
-	
-}
-echo"nome utente o password errato";
->>>>>>> 11fcee18ea719a63def8f14a9391cdce5c33fd3d

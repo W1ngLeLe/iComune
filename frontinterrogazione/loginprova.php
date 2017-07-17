@@ -1,4 +1,14 @@
-<html>
+ <?php
+ session_start();
+print_r($_POST);
+$user = $_POST['utente'];
+$password = $_POST['password'];
+$mail=$_POST['mail'];
+//Salvo i dati...
+$_SESSION['user'] = $user;
+$_SESSION['password'] = $password;
+$_SESSION['mail'] = $mail;
+ ?><html>
 <head><link rel="stylesheet" type="text/css" href="provalogin.css"></head>
 <body>
 
@@ -10,18 +20,19 @@
 			<button class="button button1">home</button>
 		</div>
 			<div id="main">
-				<form id="login" type="text" action="singin.php" method="post">
+				<div id="login" type="text" action="singin.php" method="post">
 						<p class="sansserif">utente<br>
 						<input type="text" name="utente"/>
 						<p class="sansserif">password<br>
 						<input type="text" name="password"/><br>
 						<p class="sansserif">email<br>
-						<input type="text" name="mail"/><br><br>
+						<input type="text" name="mail"/><br>
 						<input type="submit" name="invio" />
 						<input type="reset" name="reset"/>
-				</form>
+				</div>
 			</div>
 </div>
 </body>
 </html>
-
+ <?php
+ ?>

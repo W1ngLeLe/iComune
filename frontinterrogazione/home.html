@@ -1,0 +1,75 @@
+<html>
+<head><link rel="stylesheet" type="text/css" href="provalogin.css"></head>
+<body>
+
+<div id="container">
+	<div id="header">
+		<h1>ICOMUNE</h1>
+	</div><!--#header-->
+		<div id="navigation">
+			<button class="button button1">home</button>
+		</div>
+			<div id="main">
+				<form id="schedaanagrafica" type="text" action="prova.php" method="post">
+					<ul> 
+						<li>
+							<a href="#">scheda anagrafica</a> <!-- primo list-item, prima voce del menu -->
+							<ul> <!-- Lista annidata: voci del sotto-menu -->
+							<li><input type="text" name="nomecomune" method="post"></li>
+							<li><input type="radio" name="istat" value="istat" method="post"/>istat</li>
+							<li><input type="radio" name="provincia" value="provincia" method="post"/>provincia</li>
+							<li><input type="radio" name="siglaprov" value="siglaprov" method="post"/>sigla della provincia</li>
+							<li><input type="radio" name="codiceregione" value="codiceregione" method="post"/>codice della regione</li>
+							<li><input type="radio" name="areageo" value="areageo" method="post"/>area geografica</li>
+							<li><input type="radio" name="popresidente" value="popresidente" method="post"/>popolazione residente</li>
+							<li><input type="radio" name="popstraniera" value="popstraniera" method="post"/>popolazione straniera</li>
+							<li><input type="radio" name="densitademografica" value="densitademografica" method="post"/>densità demografica</li>
+							<li><input type="radio" name="superficekmq" value="superficekmq" method="post"/>superficie in kmq</li>
+							<li><input type="radio" name="altezzacentro" value="altezzacentro" method="post"/>altezza del centro</li>
+							<li><input type="radio" name="zonaaltrimetrica" value="zonaaltrimetrica" method="post"/>zona altimetrica</li>
+							<li><input type="radio" name="latitudine" value="latitudine" method="post"/>latitudine</li>
+							<li><input type="radio" name="longitudine" value="longitudine" method="post"/>longitudine</li>
+							<li><input type="radio" name="codicecatastale" value="codicecatastale" method="post"/>codice catastale</li>
+							<li><input type="radio" name="tutto" value="tutto" method="post"/>tutti i campi</li>
+							<input type="submit" name="invio" />
+							<input type="reset" name="reset"/>
+						</ul>
+						</li>
+				</form>
+				
+				<form id="amministratoricomunali" type="text" action="prova.php" method="post">
+					<ul> 
+						<li>
+							<a href="#">amministratori comunali</a> <!-- primo list-item, prima voce del menu -->
+							<ul> <!-- Lista annidata: voci del sotto-menu -->
+							<li><input type="text" name="nomecomune" method="post"></li>
+							<li><input type="radio" name="siglaprovincia" value="siglaprovincia" method="post"/>siglaprovincia</li>
+							<li><input type="radio" name="popcensita" value="popcensita" method="post"/>popcensita</li>
+							<li><input type="radio" name="titoloaccademico" value="titoloaccademico" method="post"/>titoloaccademico</li>
+							<li><input type="radio" name="cognome" value="cognome" method="post"/>cognome</li>
+							<li><input type="radio" name="nome" value="nome" method="post"/>nome</li>
+							<li><input type="radio" name="sesso" value="sesso" method="post"/>sesso</li>
+							<li><input type="radio" name="datanascita" value="datanascita" method="post"/>datanascita</li>
+							<li><input type="radio" name="luogonascita" value="luogonascita" method="post"/>luogonascita</li>
+							<li><input type="radio" name="carica" value="carica" method="post"/>carica</li>
+							<li><input type="radio" name="dataelezione" value="dataelezione" method="post"/>dataelezione</li>
+							<li><input type="radio" name="dataentratacarica" value="dataentratacarica" method="post"/>dataentratacarica</li>
+							<li><input type="radio" name="partito" value="partito" method="post"/>partito</li>
+							<li><input type="radio" name="titolodistudio" value="titolodistudio" method="post"/>titolodistudio</li>
+							<li><input type="radio" name="professione" value="professione" method="post"/>professione</li>
+							<input type="submit" name="invio" />
+							<input type="reset" name="reset"/>
+						</ul>
+						</li>
+				</form>
+			</div>
+</div>
+</body>
+</html>
+<?php
+session_start();
+print_r($_POST);
+$nomecomune = $_POST['nomecomune'];
+//Salvo i dati...
+$_SESSION['nomecomune'] = $nomecomune;
+?>

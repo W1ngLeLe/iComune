@@ -37,7 +37,7 @@ $ac="select amministratoricomunali.cognome,amministratoricomunali.nome,amministr
 $fp="select festepatronali.nomesanto,festepatronali.fkcomunepatrono,festepatronali.giornofesta from icomune.festepatronali inner join icomune.schedaanagrafica on festepatronali.fkcomunepatrono=schedaanagrafica.nomecomune where festepatronali.fkcomunepatrono=\"".$var."\"";
 $c="select programmazionecinema.nomecinema,schedaanagraficafilm.nomefilm,cinema_film.proiezione
 from icomune.schedaanagraficafilm inner join(icomune.programmazionecinema inner join cinema_film on 
-idcinema=cinema_film.fkcin)on schedaanagraficafilm.idfilm=cinema_film.fkfilm where fkcinema=\"".$var."\"";
+idcinema=cinema_film.fkcinema)on schedaanagraficafilm.idfilm=cinema_film.fkfilm where fkcinema=\"".$var."\"";
 /*$l="SELECT * FROM icomune.amministratoricomunali WHERE fkcomuneamm=upper(\"".$var."\")";
 $v="SELECT * FROM icomune.festepatronali WHERE fkcomunepatrono=\"".$var."\"";*/
 if(isset ($_POST['istat']))

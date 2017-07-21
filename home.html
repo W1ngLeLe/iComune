@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!doctype html>
 <html>
 <head><link rel="stylesheet" type="text/css" href="provalogin.css"><meta charset="utf-8"/></head>
@@ -86,3 +87,93 @@
 </div>
 </body>
 </html>
+=======
+<!doctype html>
+<html>
+<head><link rel="stylesheet" type="text/css" href="provalogin.css"><meta charset="utf-8"/></head>
+<body>
+
+<div id="container">
+	<div id="header">
+		<h1 href="#" class="sansserif">ICOMUNE</h1>
+	</div><!--#header-->
+		<div id="navigation">
+			<button class="button button1">home</button>
+		</div>
+			<div id="main">
+					<form  id="schedaanagrafica" name="schedaanagrafica" action="prova.php" method="post">
+					<ul> 
+						<li>
+							<a href="#" class="sansserif">scheda anagrafica</a> <!-- primo list-item, prima voce del menu -->
+							<ul> <!-- Lista annidata: voci del sotto-menu -->
+							<li><input type="text" name="nomecomune" method="post"></li>
+							<li><input type="checkbox" name="istat" value="istat" method="post"/>istat</li>
+							<li><input type="checkbox" name="provincia" value="provincia" method="post"/>provincia</li>
+							<li><input type="checkbox" name="siglaprov" value="siglaprov" method="post"/>sigla della provincia</li>
+							<li><input type="checkbox" name="codiceregione" value="codiceregione" method="post"/>codice della regione</li>
+							<li><input type="checkbox" name="areageo" value="areageo" method="post"/>area geografica</li>
+							<li><input type="checkbox" name="popresidente" value="popresidente" method="post"/>popolazione residente</li>
+							<li><input type="checkbox" name="popstraniera" value="popstraniera" method="post"/>popolazione straniera</li>
+							<li><input type="checkbox" name="densitademografica" value="densitademografica" method="post"/>densità demografica</li>
+							<li><input type="checkbox" name="superficekmq" value="superficekmq" method="post"/>superficie in kmq</li>
+							<li><input type="checkbox" name="altezzacentro" value="altezzacentro" method="post"/>altezza del centro</li>
+							<li><input type="checkbox" name="zonaaltrimetrica" value="zonaaltrimetrica" method="post"/>zona altimetrica</li>
+							<li><input type="checkbox" name="latitudine" value="latitudine" method="post"/>latitudine</li>
+							<li><input type="checkbox" name="longitudine" value="longitudine" method="post"/>longitudine</li>
+							<li><input type="checkbox" name="codicecatastale" value="codicecatastale" method="post"/>codice catastale</li>
+							<li><input type="checkbox" name="tutto" value="tutto" method="post"/>tutti i campi</li>	
+							<input type="submit" name="invio" />
+							<input type="reset" name="reset"/>
+						</ul>
+						</li>
+				</form>	
+
+				<form  id="amministratoricomunali" name="amministratoricomunali" action="prova.php" method="post">
+					<ul> 
+						<li>
+							<a href="#" class="sansserif">amministratori comunali</a> <!-- primo list-item, prima voce del menu -->
+							<ul> <!-- Lista annidata: voci del sotto-menu -->
+							<li><p class="sansserif">inserire le generalità dell'amministratore oppure inserire il nome del comune per avere tutti gli amministratori di quest'ultimo<br></li>
+							<li><p class="sansserif">nome<br></li>
+							<li><input type="text" name="nome" method="post"></li>
+							<li><p class="sansserif">cognome<br></li>
+							<li><input type="text" name="cognome" method="post"></li>
+							<li><p class="sansserif">nome del comune<br></li>
+							<li><input type="text" name="nomecomune" method="post"></li>
+							<input type="submit" name="invio" />
+				            <input type="reset" name="reset"/>
+						</ul>
+						</li>
+				</form>	
+				<form id="festepatronali"  name="festepatronali" action="prova.php" method="post">
+					<ul> 
+						<li>
+							<a href="#" class="sansserif">santo patrono</a> <!-- primo list-item, prima voce del menu -->
+							<ul> <!-- Lista annidata: voci del sotto-menu -->
+							<li><p class="sansserif">nome del comune <br></li>
+							<li><input type="text" name="nomecomune" method="post"></li>
+							<input type="submit" name="invio" />
+				            <input type="reset" name="reset"/>
+						</ul>
+						</li>
+				</form>
+				<form  id="cinema" name="cinema" action="prova.php" method="post">
+					<ul> 
+						<li>
+							<a href="#" class="sansserif">cinema</a> <!-- primo list-item, prima voce del menu -->
+							<ul> <!-- Lista annidata: voci del sotto-menu -->
+							
+							<li><p class="sansserif">nome del comune <br></li>
+							<li><input type="text" name="nomecomune" method="post"></li>
+							<input type="submit" name="invio" />
+				            <input type="reset" name="reset"/>
+						</ul>
+						</li>
+				</form>
+			</div>
+				
+      
+</div>
+</body>
+</html>
+>>>>>>> afe954fe2c77b5080b78880128057abe149debc6
